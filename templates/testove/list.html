@@ -1,0 +1,43 @@
+{% extends 'testove/base.html' %}
+
+
+{% block title %}
+    View list
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ ls.name }}</h1>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <button type="submit" name="save" value="clicked">Save schema</button>
+            <ul>
+                {% for item in ls.item_set.all %}
+                <li> {{ item.name }} {{ item.type }} {{ item.order }}<a href="delete/{{ item.id }}">delete</a></li>
+                {% endfor %}
+            </ul>
+            <label for="colum_name">Colum name:</label>
+            <input type="text" id="colum_name" name="colum_name">
+            <label for="type">Type:</label>
+            <select name="type" id="type">
+                <option value="Full name">Full name</option>
+                <option value="Job">Job</option>
+                <option value="Email">Email</option>
+                <option value="Domain name">Domain name</option>
+                <option value="Phone number">Phone number</option>
+                <option value="Company name">Company name</option>
+                <option value="Text">Text</option>
+                <option value="Integer">Integer</option>
+                <option value="Address">Address</option>
+                <option value="Date">Date</option>
+            </select>
+            <label for="order">Order:</label>
+            <input type="text" id="Order" name="order">
+            <button type="submit" name="newItem" value="clicked">Add colum</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+
+

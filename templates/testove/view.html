@@ -1,0 +1,12 @@
+{% extends 'testove/base.html' %}
+
+
+{% block title %}
+    View
+{% endblock %}
+
+{% block content %}
+    {% for td in user.generatedCSV.all %}
+        <p><a href="/{{ td.id }}">{{ td.name }}</a> </p>
+    {% endfor %}
+{% endblock %}

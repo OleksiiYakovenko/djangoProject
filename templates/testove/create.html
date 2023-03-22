@@ -1,0 +1,15 @@
+{% extends 'testove/base.html' %}
+
+{% block title %}
+    Create Schema
+{% endblock %}
+
+{% block content %}
+    Create Schema
+    <form method="post" action="/create/">
+        {%  csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="save">Save Schema</button>
+    </form>
+
+{% endblock %}
